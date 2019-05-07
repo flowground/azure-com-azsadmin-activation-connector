@@ -1,0 +1,118 @@
+{
+    "title": "AzureBridgeAdminClient",
+    "description": "AzureBridge Admin Client.",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/azure.com/azsadmin-Activation/2016-01-01/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://adminmanagement.local.azurestack.external/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "azure_auth": {
+                "label": "Authorization uses an Azure Active Directory OAuth2 flow.",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://login.microsoftonline.com/common/oauth2/authorize"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "Activations_List": {
+            "main": "./lib/actions/Activations_List.js",
+            "title": "Returns the list of activations.",
+            "description": "Returns the list of activations.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Activations_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Activations_Delete": {
+            "main": "./lib/actions/Activations_Delete.js",
+            "title": "Delete an activation.",
+            "description": "Delete an activation.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Activations_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Activations_Get": {
+            "main": "./lib/actions/Activations_Get.js",
+            "title": "Returns activation name.",
+            "description": "Returns activation name.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Activations_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Activations_CreateOrUpdate": {
+            "main": "./lib/actions/Activations_CreateOrUpdate.js",
+            "title": "Create a new activation.",
+            "description": "Create a new activation.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Activations_CreateOrUpdate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

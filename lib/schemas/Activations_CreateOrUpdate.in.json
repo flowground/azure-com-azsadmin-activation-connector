@@ -1,0 +1,64 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroup": {
+            "required": true,
+            "type": "string"
+        },
+        "activationName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Holds properties related to activation.",
+            "properties": {
+                "azureRegistrationResourceIdentifier": {
+                    "description": "Azure registration resource identifier.",
+                    "type": "string"
+                },
+                "displayName": {
+                    "description": "Name displayed for the product.",
+                    "type": "string"
+                },
+                "expiration": {
+                    "description": "The activation expiration.",
+                    "type": "string"
+                },
+                "marketplaceSyndicationEnabled": {
+                    "description": "Value indicating whether the marketplace syndication feature is enabled.",
+                    "type": "boolean"
+                },
+                "provisioningState": {
+                    "description": "The provisioning state of the resource.",
+                    "enum": [
+                        "Stopped",
+                        "Starting",
+                        "Running",
+                        "Stopping",
+                        "Succeeded",
+                        "Downloading"
+                    ],
+                    "type": "string",
+                    "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "ProvisioningState"
+                    }
+                },
+                "usageReportingEnabled": {
+                    "description": "Value indicating whether the usage reporting feature is enabled.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string",
+            "default": "2016-01-01"
+        }
+    }
+}
