@@ -5,7 +5,7 @@
 A generated **flow**ground connector for the AzureBridgeAdminClient API (version 2016-01-01).
 
 Generated from: https://api.apis.guru/v2/specs/azure.com/azsadmin-Activation/2016-01-01/swagger.json<br/>
-Generated at: 2019-05-07T17:37:24+03:00
+Generated at: 2019-06-11T18:13:31+03:00
 
 ## API Description
 
